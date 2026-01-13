@@ -5,7 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Insights64 - Chess Intelligence for Every Square</title>
   <meta name="description" content="Connect your Chess.com account and discover exactly where you're losing games. Actionable insights to improve your rating.">
-  
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://insights64.com/">
+  <meta property="og:title" content="Insights64 - Chess Intelligence for Every Square">
+  <meta property="og:description" content="Connect your Chess.com account and discover exactly where you're losing games. Actionable insights to improve your rating.">
+  <meta property="og:image" content="https://insights64.com/og-image.png">
+  <meta property="og:site_name" content="Insights64">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://insights64.com/">
+  <meta name="twitter:title" content="Insights64 - Chess Intelligence for Every Square">
+  <meta name="twitter:description" content="Connect your Chess.com account and discover exactly where you're losing games. Actionable insights to improve your rating.">
+  <meta name="twitter:image" content="https://insights64.com/og-image.png">
+  <meta name="twitter:site" content="@insights64">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
   <!-- Fonts - Lora for headings, Poppins for body -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -127,7 +149,7 @@
         </form>
         <p class="mt-4 text-sm text-anthro-dark/60">🎁 Early subscribers get <strong class="text-anthro-dark">3 months of Pro free</strong> at launch.</p>
         
-        <div id="hero-success" class="hidden mt-6 p-4 bg-anthro-cream border border-anthro-gray-light rounded-2xl">
+        <div id="hero-success" class="hidden mt-6 p-4 bg-anthro-cream border border-anthro-gray-light rounded-2xl max-w-md mx-auto">
           <p class="text-anthro-dark font-medium">🎉 You're on the list! We'll email you when we launch.</p>
         </div>
       </div>
@@ -497,16 +519,43 @@
       
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         const email = form.querySelector('input[type="email"]').value;
-        
-        // TODO: Replace with your form endpoint (Formspree, Buttondown, etc.)
-        console.log('Email submitted:', email);
-        
-        form.style.display = 'none';
-        successMessages[index].classList.remove('hidden');
-        
-        localStorage.setItem('insights64_waitlist', email);
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+
+        // Disable button and show loading state
+        submitButton.disabled = true;
+        submitButton.textContent = 'Submitting...';
+
+        try {
+          // Make POST request to waitlist API
+          const response = await fetch('https://api.insights64.com/api/waitlist', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email: email })
+          });
+
+          if (!response.ok) {
+            throw new Error(`Server responded with ${response.status}`);
+          }
+
+          // Success - hide form and show success message
+          form.style.display = 'none';
+          successMessages[index].classList.remove('hidden');
+          localStorage.setItem('insights64_waitlist', email);
+
+        } catch (error) {
+          // Error handling
+          console.error('Error submitting email:', error);
+          alert('Something went wrong. Please try again or email us at hello@insights64.com');
+
+          // Re-enable button
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+        }
       });
     });
 

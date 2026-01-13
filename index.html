@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights64 - Chess Intelligence for Every Square</title>
+  <meta name="description" content="Connect your Chess.com account and discover exactly where you're losing games. Actionable insights to improve your rating.">
+  
+  <!-- Fonts - Lora for headings, Poppins for body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'system-ui', 'sans-serif'],
+            serif: ['Lora', 'Georgia', 'serif'],
+          },
+          colors: {
+            anthro: {
+              dark: '#141413',
+              light: '#faf9f5',
+              cream: '#f5f3ef',
+              gray: '#6b6962',
+              'gray-mid': '#8a877f',
+              'gray-light': '#e8e6dc',
+              orange: '#d97757',
+              'orange-dark': '#c15f3c',
+              blue: '#6a9bcc',
+              green: '#788c5d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::selection {
+      background-color: #d97757;
+      color: white;
+    }
+    
+    .feature-tab.active {
+      background-color: #d97757;
+      color: white;
+    }
+    
+    .feature-content {
+      display: none;
+    }
+    
+    .feature-content.active {
+      display: block;
+    }
+    
+    .testimonial-card {
+      break-inside: avoid;
+    }
+
+    /* Subtle + texture background */
+    .bg-grid-pattern {
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238a877f' fill-opacity='0.12'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+  </style>
+</head>
+<body class="antialiased bg-anthro-light text-anthro-dark">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-anthro-light/95 backdrop-blur-sm border-b border-anthro-gray-light">
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo with 2x2 chessboard -->
+        <a href="#" class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded grid grid-cols-2 grid-rows-2 overflow-hidden">
+            <span class="bg-anthro-orange"></span>
+            <span class="bg-anthro-dark"></span>
+            <span class="bg-anthro-dark"></span>
+            <span class="bg-anthro-orange"></span>
+          </div>
+          <span class="font-sans font-semibold text-anthro-dark tracking-tight">Insights64</span>
+        </a>
+
+        <!-- Nav Links -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#features" class="text-sm text-anthro-gray hover:text-anthro-dark transition">Features</a>
+          <a href="#faq" class="text-sm text-anthro-gray hover:text-anthro-dark transition">FAQ</a>
+        </div>
+
+        <!-- CTA -->
+        <a href="#waitlist" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-anthro-light bg-anthro-dark rounded-full hover:bg-anthro-orange transition">
+          Join Waitlist
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative pt-32 pb-20 sm:pt-40 sm:pb-32 bg-grid-pattern">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center">
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-anthro-dark leading-[1.1]">
+          Know your <span class="text-anthro-orange">weaknesses</span>.<br>Exploit theirs.
+        </h1>
+        <p class="mt-4 text-sm font-medium text-anthro-orange uppercase tracking-wider">Chess analytics for Chess.com players</p>
+        <p class="mt-6 text-lg text-anthro-dark/70 leading-relaxed font-sans">
+          Connect your Chess.com account and get a complete analysis of your games — where you're losing rating, which openings need work, and exactly what to study next.
+        </p>
+        
+        <!-- Email Form -->
+        <form id="hero-form" class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+          <input 
+            type="email" 
+            required
+            placeholder="Enter your email" 
+            class="flex-1 max-w-xs px-5 py-3 text-base rounded-full border border-anthro-gray-light bg-white focus:outline-none focus:ring-2 focus:ring-anthro-orange focus:border-transparent font-sans"
+          >
+          <button 
+            type="submit"
+            class="px-8 py-3 text-base font-medium text-anthro-light bg-anthro-dark rounded-full hover:bg-anthro-orange transition shadow-sm"
+          >
+            Get Early Access
+          </button>
+        </form>
+        <p class="mt-4 text-sm text-anthro-dark/60">🎁 Early subscribers get <strong class="text-anthro-dark">3 months of Pro free</strong> at launch.</p>
+        
+        <div id="hero-success" class="hidden mt-6 p-4 bg-anthro-cream border border-anthro-gray-light rounded-2xl">
+          <p class="text-anthro-dark font-medium">🎉 You're on the list! We'll email you when we launch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Primary Features -->
+  <section id="features" class="py-20 sm:py-32 bg-anthro-dark">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-anthro-light">
+          Everything you need to improve.
+        </h2>
+        <p class="mt-4 text-lg text-anthro-light/70">
+          Stop guessing what to study. Get data-driven insights from your actual games.
+        </p>
+      </div>
+
+      <!-- Feature Tabs -->
+      <div class="mt-16">
+        <div class="flex flex-wrap justify-center gap-3" role="tablist">
+          <button 
+            class="feature-tab active px-5 py-2.5 rounded-full text-sm font-medium bg-anthro-light/10 text-anthro-light hover:bg-anthro-light/20 transition"
+            data-tab="openings"
+          >
+            Opening Gaps
+          </button>
+          <button 
+            class="feature-tab px-5 py-2.5 rounded-full text-sm font-medium bg-anthro-light/10 text-anthro-light hover:bg-anthro-light/20 transition"
+            data-tab="accuracy"
+          >
+            Accuracy Analysis
+          </button>
+          <button 
+            class="feature-tab px-5 py-2.5 rounded-full text-sm font-medium bg-anthro-light/10 text-anthro-light hover:bg-anthro-light/20 transition"
+            data-tab="scouting"
+          >
+            Opponent Scouting
+          </button>
+          <button 
+            class="feature-tab px-5 py-2.5 rounded-full text-sm font-medium bg-anthro-light/10 text-anthro-light hover:bg-anthro-light/20 transition"
+            data-tab="patterns"
+          >
+            Pattern Detection
+          </button>
+        </div>
+
+        <!-- Feature Content -->
+        <div class="mt-12">
+          <!-- Openings -->
+          <div class="feature-content active" data-content="openings">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h3 class="text-2xl font-serif font-semibold text-anthro-light">Find your opening weaknesses</h3>
+                <p class="mt-4 text-anthro-gray leading-relaxed">
+                  See your win rate and accuracy for every opening you play. We analyze patterns across all your games to identify exactly which lines are costing you rating points.
+                </p>
+                <ul class="mt-6 space-y-3">
+                  <li class="flex items-center gap-3 text-anthro-light/80">
+                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
+                    Win rate by opening and variation
+                  </li>
+                  <li class="flex items-center gap-3 text-anthro-light/80">
+                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
+                    Accuracy comparison vs your average
+                  </li>
+                  <li class="flex items-center gap-3 text-anthro-light/80">
+                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
+                    Prioritized study recommendations
+                  </li>
+                </ul>
+              </div>
+              <div class="bg-anthro-light/5 border border-anthro-light/10 rounded-2xl p-6">
+                <div class="flex items-center justify-between mb-6">
+                  <h4 class="text-anthro-light font-medium">Opening Performance</h4>
+                  <span class="text-xs text-anthro-gray">Last 100 games</span>
+                </div>
+                <div class="space-y-3">
+                  <div class="flex items-center justify-between p-4 bg-anthro-light/5 rounded-xl">
+                    <div>
+                      <p class="text-anthro-light font-medium">Italian Game</p>
+                      <p class="text-sm text-anthro-gray">23 games</p>
+                    </div>
+                    <div class="text-right">
+                      <p class="text-anthro-green font-semibold">67%</p>
+                      <p class="text-xs text-anthro-gray">win rate</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between p-4 bg-anthro-light/5 rounded-xl">
+                    <div>
+                      <p class="text-anthro-light font-medium">Caro-Kann Defense</p>
+                      <p class="text-sm text-anthro-gray">18 games</p>
+                    </div>
+                    <div class="text-right">
+                      <p class="text-anthro-green font-semibold">61%</p>
+                      <p class="text-xs text-anthro-gray">win rate</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between p-4 bg-anthro-orange/10 border border-anthro-orange/30 rounded-xl">
+                    <div>
+                      <p class="text-anthro-light font-medium">Sicilian Defense</p>
+                      <p class="text-sm text-anthro-gray">31 games</p>
+                    </div>
+                    <div class="text-right">
+                      <p class="text-anthro-orange font-semibold">38%</p>
+                      <p class="text-xs text-anthro-orange">⚠ needs work</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accuracy -->
+          <div class="feature-content" data-content="accuracy">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h3 class="text-2xl font-serif font-semibold text-anthro-light">Powered by Stockfish</h3>
+                <p class="mt-4 text-anthro-gray leading-relaxed">
+                  Every move analyzed by the strongest chess engine. See your accuracy broken down by game phase to understand exactly where you're making mistakes.
+                </p>
+                <ul class="mt-6 space-y-3">
+                  <li class="flex items-center gap-3 text-anthro-light/80">
+                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
+                    Accuracy by phase: opening, middlegame, endgame
+                  </li>
+                  <li class="flex items-center gap-3 text-anthro-light/80">
+                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
+                    Blunder, mistake, inaccuracy counts
+                  </li>
+                  <li class="flex items-center gap-3 text-anthro-light/80">
+                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
+                    Critical moment detection
+                  </li>
+                </ul>
+              </div>
+              <div class="bg-anthro-light/5 border border-anthro-light/10 rounded-2xl p-6">
+                <div class="flex items-center justify-between mb-6">
+                  <h4 class="text-anthro-light font-medium">Your Accuracy</h4>
+                  <span class="text-xs text-anthro-gray">Average</span>
+                </div>
+                <div class="text-center py-8">
+                  <p class="text-6xl font-serif font-semibold text-anthro-light">74.2<span class="text-2xl text-anthro-gray">%</span></p>
+                  <p class="mt-2 text-anthro-gray">Overall accuracy</p>
+                </div>
+                <div class="grid grid-cols-3 gap-3 mt-6">
+                  <div class="text-center p-4 bg-anthro-light/5 rounded-xl">
+                    <p class="text-xl font-semibold text-anthro-green">85%</p>
+                    <p class="text-xs text-anthro-gray mt-1">Opening</p>
+                  </div>
+                  <div class="text-center p-4 bg-anthro-light/5 rounded-xl">
+                    <p class="text-xl font-semibold text-anthro-blue">71%</p>
+                    <p class="text-xs text-anthro-gray mt-1">Middlegame</p>
+                  </div>
+                  <div class="text-center p-4 bg-anthro-orange/10 border border-anthro-orange/30 rounded-xl">
+                    <p class="text-xl font-semibold text-anthro-orange">58%</p>
+                    <p class="text-xs text-anthro-gray mt-1">Endgame</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scouting -->
+          <div class="feature-content" data-content="scouting">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h3 class="text-2xl font-serif font-semibold text-anthro-light">Know your opponent</h3>
+                <p class="mt-4 text-anthro-gray leading-relaxed">
+                  Preparing for a tournament? Analyze any Chess.com player to find their weaknesses before you sit across from them.
+                </p>
+                <ul class="mt-6 space-y-3">
+                  <li class="flex items-center gap-3 text-anthro-light/80">
+                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
+                    Their worst openings (and what to play)
+                  </li>
+                  <li class="flex items-center gap-3 text-anthro-light/80">
+                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
+                    Time trouble patterns
+                  </li>
+                  <li class="flex items-center gap-3 text-anthro-light/80">
+                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
+                    Head-to-head comparison
+                  </li>
+                </ul>
+              </div>
+              <div class="bg-anthro-light/5 border border-anthro-light/10 rounded-2xl p-6">
+                <div class="flex items-center justify-between mb-6">
+                  <h4 class="text-anthro-light font-medium">Scouting Report</h4>
+                  <span class="text-xs bg-anthro-orange/20 text-anthro-orange px-2 py-1 rounded-full">@opponent</span>
+                </div>
+                <div class="p-4 bg-anthro-light/5 rounded-xl mb-4">
+                  <p class="text-sm text-anthro-gray">Against 1.e4, they struggle with:</p>
+                  <p class="text-lg text-anthro-light font-medium mt-1">Sicilian Defense (38% win rate)</p>
+                </div>
+                <div class="p-4 bg-anthro-green/10 border border-anthro-green/30 rounded-xl">
+                  <p class="text-sm text-anthro-green font-medium">💡 Recommendation</p>
+                  <p class="text-anthro-light/80 mt-1 text-sm">Play 1.e4 and steer into Sicilian lines. They collapse after move 15 in the Najdorf.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Patterns -->
+          <div class="feature-content" data-content="patterns">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h3 class="text-2xl font-serif font-semibold text-anthro-light">Spot your patterns</h3>
+                <p class="mt-4 text-anthro-gray leading-relaxed">
+                  Do you play worse late at night? After 10 games in a row? When tilted? The data knows — and now you will too.
+                </p>
+                <ul class="mt-6 space-y-3">
+                  <li class="flex items-center gap-3 text-anthro-light/80">
+                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
+                    Performance by time of day
+                  </li>
+                  <li class="flex items-center gap-3 text-anthro-light/80">
+                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
+                    Session length impact
+                  </li>
+                  <li class="flex items-center gap-3 text-anthro-light/80">
+                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
+                    Tilt detection
+                  </li>
+                </ul>
+              </div>
+              <div class="bg-anthro-light/5 border border-anthro-light/10 rounded-2xl p-6">
+                <div class="flex items-center justify-between mb-6">
+                  <h4 class="text-anthro-light font-medium">Patterns Detected</h4>
+                </div>
+                <div class="space-y-3">
+                  <div class="p-4 bg-anthro-orange/10 border border-anthro-orange/30 rounded-xl">
+                    <p class="text-anthro-orange font-medium">⚠ After 8+ games</p>
+                    <p class="text-sm text-anthro-gray mt-1">Your win rate drops from 54% to 41%</p>
+                  </div>
+                  <div class="p-4 bg-anthro-blue/10 border border-anthro-blue/30 rounded-xl">
+                    <p class="text-anthro-blue font-medium">🌙 Late night (after 11pm)</p>
+                    <p class="text-sm text-anthro-gray mt-1">Blunder rate increases 2.3x</p>
+                  </div>
+                  <div class="p-4 bg-anthro-green/10 border border-anthro-green/30 rounded-xl">
+                    <p class="text-anthro-green font-medium">✓ Best performance</p>
+                    <p class="text-sm text-anthro-gray mt-1">Saturday mornings, first 5 games</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20 sm:py-32 bg-anthro-cream">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-anthro-dark">
+          Frequently asked questions
+        </h2>
+      </div>
+
+      <div class="mt-16 max-w-2xl mx-auto">
+        <dl class="space-y-8">
+          <div>
+            <dt class="text-base font-medium text-anthro-dark">How does Insights64 analyze my games?</dt>
+            <dd class="mt-2 text-anthro-gray leading-relaxed">We use Stockfish, the world's strongest chess engine, to evaluate every position in your games. This gives you the same quality analysis that top players use.</dd>
+          </div>
+          <div>
+            <dt class="text-base font-medium text-anthro-dark">How long does analysis take?</dt>
+            <dd class="mt-2 text-anthro-gray leading-relaxed">Typically 30-60 minutes for 100 games. You'll get an email when your analysis is ready. Free users get a faster, lighter analysis.</dd>
+          </div>
+          <div>
+            <dt class="text-base font-medium text-anthro-dark">Is my Chess.com password safe?</dt>
+            <dd class="mt-2 text-anthro-gray leading-relaxed">We never ask for your password. Chess.com's API is public — we only need your username to fetch your games.</dd>
+          </div>
+          <div>
+            <dt class="text-base font-medium text-anthro-dark">Can I analyze other players' games?</dt>
+            <dd class="mt-2 text-anthro-gray leading-relaxed">Yes! Pro users get 3 opponent scouting reports per month. Perfect for tournament preparation.</dd>
+          </div>
+          <div>
+            <dt class="text-base font-medium text-anthro-dark">What if I have more questions?</dt>
+            <dd class="mt-2 text-anthro-gray leading-relaxed">Email us at <a href="mailto:hello@insights64.com" class="text-anthro-orange hover:underline">hello@insights64.com</a> — we respond to every message.</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section id="waitlist" class="py-20 sm:py-32 bg-anthro-light">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-anthro-dark">
+          Ready to improve?
+        </h2>
+        <p class="mt-4 text-lg text-anthro-dark/60">
+          Join the waitlist. We're launching soon.
+        </p>
+        
+        <form id="footer-form" class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+          <input 
+            type="email" 
+            required
+            placeholder="Enter your email" 
+            class="flex-1 max-w-xs px-5 py-3 text-base rounded-full border border-anthro-gray-light bg-white focus:outline-none focus:ring-2 focus:ring-anthro-orange focus:border-transparent"
+          >
+          <button 
+            type="submit"
+            class="px-8 py-3 text-base font-medium text-anthro-light bg-anthro-dark rounded-full hover:bg-anthro-orange transition"
+          >
+            Get Early Access
+          </button>
+        </form>
+        
+        <div id="footer-success" class="hidden mt-6 p-4 bg-anthro-cream border border-anthro-gray-light rounded-2xl max-w-md mx-auto">
+          <p class="text-anthro-dark font-medium">🎉 You're on the list! We'll email you when we launch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 border-t border-anthro-gray-light bg-anthro-light">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <a href="#" class="flex items-center gap-3">
+          <div class="w-7 h-7 rounded grid grid-cols-2 grid-rows-2 overflow-hidden">
+            <span class="bg-anthro-orange"></span>
+            <span class="bg-anthro-dark"></span>
+            <span class="bg-anthro-dark"></span>
+            <span class="bg-anthro-orange"></span>
+          </div>
+          <span class="font-sans font-medium text-anthro-dark">Insights64</span>
+        </a>
+        <p class="text-sm text-anthro-gray">
+          Built by a chess player, for chess players. 
+          <a href="https://twitter.com/insights64" class="text-anthro-dark hover:text-anthro-orange transition">Twitter</a> · 
+          <a href="mailto:hello@insights64.com" class="text-anthro-dark hover:text-anthro-orange transition">Contact</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Feature tabs
+    const tabs = document.querySelectorAll('.feature-tab');
+    const contents = document.querySelectorAll('.feature-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.tab;
+        
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+        
+        tab.classList.add('active');
+        document.querySelector(`[data-content="${target}"]`).classList.add('active');
+      });
+    });
+
+    // Form handling
+    const forms = [document.getElementById('hero-form'), document.getElementById('footer-form')];
+    const successMessages = [document.getElementById('hero-success'), document.getElementById('footer-success')];
+
+    forms.forEach((form, index) => {
+      if (!form) return;
+      
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const email = form.querySelector('input[type="email"]').value;
+        
+        // TODO: Replace with your form endpoint (Formspree, Buttondown, etc.)
+        console.log('Email submitted:', email);
+        
+        form.style.display = 'none';
+        successMessages[index].classList.remove('hidden');
+        
+        localStorage.setItem('insights64_waitlist', email);
+      });
+    });
+
+    // Check if already signed up
+    if (localStorage.getItem('insights64_waitlist')) {
+      forms.forEach((form, index) => {
+        if (!form) return;
+        form.style.display = 'none';
+        successMessages[index].classList.remove('hidden');
+        successMessages[index].innerHTML = '<p class="text-anthro-dark font-medium">✓ You\'re already on the waitlist!</p>';
+      });
+    }
+  </script>
+
+</body>
+</html>

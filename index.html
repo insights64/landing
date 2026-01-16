@@ -651,6 +651,11 @@
           successMessages[index].classList.remove('hidden');
           localStorage.setItem('insights64_waitlist', email);
 
+          // Send Google Analytics event
+          gtag('event', 'sign_up', {
+            method: 'waitlist'
+          });
+
         } catch (error) {
           // Error handling
           console.error('Error submitting email:', error);

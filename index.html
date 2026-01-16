@@ -3,22 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Insights64 - Chess Intelligence for Every Square</title>
-  <meta name="description" content="Connect your Chess.com account and discover exactly where you're losing games. Actionable insights to improve your rating.">
+  <title>Insights64 - Chess Coaching Software | Student Management & Progress Tracking</title>
+  <meta name="description" content="Stop reviewing student games manually. See all your students' weaknesses in one dashboard. The chess coaching software that saves you hours every week.">
+  <meta name="keywords" content="chess coaching software, chess student management, chess progress tracking, chess coach tools, chess academy software">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://insights64.com/">
-  <meta property="og:title" content="Insights64 - Chess Intelligence for Every Square">
-  <meta property="og:description" content="Connect your Chess.com account and discover exactly where you're losing games. Actionable insights to improve your rating.">
+  <meta property="og:title" content="Insights64 - Chess Coaching Software for Modern Coaches">
+  <meta property="og:description" content="Stop reviewing student games manually. See all your students' weaknesses in one dashboard. Know exactly what to teach before each lesson.">
   <meta property="og:image" content="https://insights64.com/og-image.png">
   <meta property="og:site_name" content="Insights64">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://insights64.com/">
-  <meta name="twitter:title" content="Insights64 - Chess Intelligence for Every Square">
-  <meta name="twitter:description" content="Connect your Chess.com account and discover exactly where you're losing games. Actionable insights to improve your rating.">
+  <meta name="twitter:title" content="Insights64 - Chess Coaching Software for Modern Coaches">
+  <meta name="twitter:description" content="Stop reviewing student games manually. See all your students' weaknesses in one dashboard. Know exactly what to teach before each lesson.">
   <meta name="twitter:image" content="https://insights64.com/og-image.png">
   <meta name="twitter:site" content="@insights64">
 
@@ -32,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -65,27 +66,17 @@
       background-color: #d97757;
       color: white;
     }
-    
-    .feature-tab.active {
-      background-color: #d97757;
-      color: white;
-    }
-    
-    .feature-content {
-      display: none;
-    }
-    
-    .feature-content.active {
-      display: block;
-    }
-    
-    .testimonial-card {
-      break-inside: avoid;
-    }
 
-    /* Subtle + texture background */
+    /* Subtle grid texture background */
     .bg-grid-pattern {
       background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238a877f' fill-opacity='0.12'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .pricing-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .pricing-card:hover {
+      transform: translateY(-4px);
     }
   </style>
 </head>
@@ -109,301 +100,430 @@
         <!-- Nav Links -->
         <div class="hidden md:flex items-center gap-8">
           <a href="#features" class="text-sm text-anthro-gray hover:text-anthro-dark transition">Features</a>
+          <a href="#pricing" class="text-sm text-anthro-gray hover:text-anthro-dark transition">Pricing</a>
           <a href="#faq" class="text-sm text-anthro-gray hover:text-anthro-dark transition">FAQ</a>
         </div>
 
         <!-- CTA -->
         <a href="#waitlist" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-anthro-light bg-anthro-dark rounded-full hover:bg-anthro-orange transition">
-          Join Waitlist
+          Get Early Access
         </a>
       </div>
     </nav>
   </header>
 
   <!-- Hero -->
-  <section class="relative pt-32 pb-20 sm:pt-40 sm:pb-32 bg-grid-pattern">
+  <section class="relative pt-32 pb-20 sm:pt-40 sm:pb-28 bg-grid-pattern">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl mx-auto text-center">
+      <div class="max-w-3xl mx-auto text-center">
         <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-anthro-dark leading-[1.1]">
-          Know your <span class="text-anthro-orange">weaknesses</span>.<br>Exploit theirs.
+          Stop reviewing student games <span class="text-anthro-orange">manually</span>
         </h1>
-        <p class="mt-4 text-sm font-medium text-anthro-orange uppercase tracking-wider">Chess analytics for Chess.com players</p>
-        <p class="mt-6 text-lg text-anthro-dark/70 leading-relaxed font-sans">
-          Connect your Chess.com account and get a complete analysis of your games — where you're losing rating, which openings need work, and exactly what to study next.
+        <p class="mt-6 text-lg sm:text-xl text-anthro-dark/70 leading-relaxed font-sans">
+          See all your students' weaknesses in one dashboard. Know exactly what to teach before each lesson.
         </p>
-        
+
         <!-- Email Form -->
         <form id="hero-form" class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-          <input 
-            type="email" 
+          <input
+            type="email"
             required
-            placeholder="Enter your email" 
+            placeholder="Enter your email"
             class="flex-1 max-w-xs px-5 py-3 text-base rounded-full border border-anthro-gray-light bg-white focus:outline-none focus:ring-2 focus:ring-anthro-orange focus:border-transparent font-sans"
           >
-          <button 
+          <button
             type="submit"
             class="px-8 py-3 text-base font-medium text-anthro-light bg-anthro-dark rounded-full hover:bg-anthro-orange transition shadow-sm"
           >
             Get Early Access
           </button>
         </form>
-        <p class="mt-4 text-sm text-anthro-dark/60">🎁 Early subscribers get <strong class="text-anthro-dark">3 months of Pro free</strong> at launch.</p>
-        
+
         <div id="hero-success" class="hidden mt-6 p-4 bg-anthro-cream border border-anthro-gray-light rounded-2xl max-w-md mx-auto">
-          <p class="text-anthro-dark font-medium">🎉 You're on the list! We'll email you when we launch.</p>
+          <p class="text-anthro-dark font-medium">You're on the list! We'll email you when we launch.</p>
+        </div>
+
+        <!-- Trust Badge -->
+        <p class="mt-6 text-sm text-anthro-gray">
+          Works with <span class="font-medium text-anthro-dark">Chess.com</span> &bull; <span class="font-medium text-anthro-dark">Lichess</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="py-20 sm:py-28 bg-anthro-cream">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <h2 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-anthro-dark">
+          Sound familiar?
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-2xl border border-anthro-gray-light">
+          <div class="w-12 h-12 bg-anthro-orange/10 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-anthro-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <p class="text-lg text-anthro-dark font-medium leading-relaxed">
+            "I spend hours reviewing games before each lesson"
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl border border-anthro-gray-light">
+          <div class="w-12 h-12 bg-anthro-orange/10 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-anthro-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <p class="text-lg text-anthro-dark font-medium leading-relaxed">
+            "I have 15 students and can't remember everyone's weaknesses"
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl border border-anthro-gray-light">
+          <div class="w-12 h-12 bg-anthro-orange/10 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-anthro-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <p class="text-lg text-anthro-dark font-medium leading-relaxed">
+            "Parents ask for progress reports but I don't have data"
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Primary Features -->
+  <!-- Features -->
   <section id="features" class="py-20 sm:py-32 bg-anthro-dark">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl mx-auto text-center">
+      <div class="max-w-2xl mx-auto text-center mb-16">
         <h2 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-anthro-light">
-          Everything you need to improve.
+          Everything you need to coach better
         </h2>
         <p class="mt-4 text-lg text-anthro-light/70">
-          Stop guessing what to study. Get data-driven insights from your actual games.
+          A tool that makes chess coaches' lives easier — helping you save time managing your students and tracking their progress.
         </p>
       </div>
 
-      <!-- Feature Tabs -->
-      <div class="mt-16">
-        <div class="flex flex-wrap justify-center gap-3" role="tablist">
-          <button 
-            class="feature-tab active px-5 py-2.5 rounded-full text-sm font-medium bg-anthro-light/10 text-anthro-light hover:bg-anthro-light/20 transition"
-            data-tab="openings"
-          >
-            Opening Gaps
-          </button>
-          <button 
-            class="feature-tab px-5 py-2.5 rounded-full text-sm font-medium bg-anthro-light/10 text-anthro-light hover:bg-anthro-light/20 transition"
-            data-tab="accuracy"
-          >
-            Accuracy Analysis
-          </button>
-          <button 
-            class="feature-tab px-5 py-2.5 rounded-full text-sm font-medium bg-anthro-light/10 text-anthro-light hover:bg-anthro-light/20 transition"
-            data-tab="scouting"
-          >
-            Opponent Scouting
-          </button>
-          <button 
-            class="feature-tab px-5 py-2.5 rounded-full text-sm font-medium bg-anthro-light/10 text-anthro-light hover:bg-anthro-light/20 transition"
-            data-tab="patterns"
-          >
-            Pattern Detection
-          </button>
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Feature 1: Student Dashboard -->
+        <div class="bg-anthro-light/5 border border-anthro-light/10 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-anthro-orange rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-serif font-semibold text-anthro-light mb-3">Student Dashboard</h3>
+          <p class="text-anthro-gray leading-relaxed">
+            All your students in one view. See who needs attention, who's improving, and who's struggling — at a glance.
+          </p>
+          <div class="mt-6 p-4 bg-anthro-light/5 rounded-xl">
+            <div class="flex items-center justify-between text-sm">
+              <span class="text-anthro-light/80">Emma K.</span>
+              <span class="text-anthro-orange">Needs review</span>
+            </div>
+            <div class="flex items-center justify-between text-sm mt-2">
+              <span class="text-anthro-light/80">Marcus T.</span>
+              <span class="text-anthro-green">Improving +45</span>
+            </div>
+            <div class="flex items-center justify-between text-sm mt-2">
+              <span class="text-anthro-light/80">Sofia L.</span>
+              <span class="text-anthro-blue">Steady</span>
+            </div>
+          </div>
         </div>
 
-        <!-- Feature Content -->
-        <div class="mt-12">
-          <!-- Openings -->
-          <div class="feature-content active" data-content="openings">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h3 class="text-2xl font-serif font-semibold text-anthro-light">Find your opening weaknesses</h3>
-                <p class="mt-4 text-anthro-gray leading-relaxed">
-                  See your win rate and accuracy for every opening you play. We analyze patterns across all your games to identify exactly which lines are costing you rating points.
-                </p>
-                <ul class="mt-6 space-y-3">
-                  <li class="flex items-center gap-3 text-anthro-light/80">
-                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
-                    Win rate by opening and variation
-                  </li>
-                  <li class="flex items-center gap-3 text-anthro-light/80">
-                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
-                    Accuracy comparison vs your average
-                  </li>
-                  <li class="flex items-center gap-3 text-anthro-light/80">
-                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
-                    Prioritized study recommendations
-                  </li>
-                </ul>
-              </div>
-              <div class="bg-anthro-light/5 border border-anthro-light/10 rounded-2xl p-6">
-                <div class="flex items-center justify-between mb-6">
-                  <h4 class="text-anthro-light font-medium">Opening Performance</h4>
-                  <span class="text-xs text-anthro-gray">Last 100 games</span>
-                </div>
-                <div class="space-y-3">
-                  <div class="flex items-center justify-between p-4 bg-anthro-light/5 rounded-xl">
-                    <div>
-                      <p class="text-anthro-light font-medium">Italian Game</p>
-                      <p class="text-sm text-anthro-gray">23 games</p>
-                    </div>
-                    <div class="text-right">
-                      <p class="text-anthro-green font-semibold">67%</p>
-                      <p class="text-xs text-anthro-gray">win rate</p>
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between p-4 bg-anthro-light/5 rounded-xl">
-                    <div>
-                      <p class="text-anthro-light font-medium">Caro-Kann Defense</p>
-                      <p class="text-sm text-anthro-gray">18 games</p>
-                    </div>
-                    <div class="text-right">
-                      <p class="text-anthro-green font-semibold">61%</p>
-                      <p class="text-xs text-anthro-gray">win rate</p>
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between p-4 bg-anthro-orange/10 border border-anthro-orange/30 rounded-xl">
-                    <div>
-                      <p class="text-anthro-light font-medium">Sicilian Defense</p>
-                      <p class="text-sm text-anthro-gray">31 games</p>
-                    </div>
-                    <div class="text-right">
-                      <p class="text-anthro-orange font-semibold">38%</p>
-                      <p class="text-xs text-anthro-orange">⚠ needs work</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <!-- Feature 2: Weakness Detection -->
+        <div class="bg-anthro-light/5 border border-anthro-light/10 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-anthro-orange rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-serif font-semibold text-anthro-light mb-3">Weakness Detection</h3>
+          <p class="text-anthro-gray leading-relaxed">
+            Automatically find bad openings, blunder patterns, and time trouble. Know what to teach without watching every game.
+          </p>
+          <div class="mt-6 space-y-2">
+            <div class="p-3 bg-anthro-orange/10 border border-anthro-orange/30 rounded-lg">
+              <p class="text-sm text-anthro-orange">Endgame accuracy: 52% (vs 78% middlegame)</p>
+            </div>
+            <div class="p-3 bg-anthro-blue/10 border border-anthro-blue/30 rounded-lg">
+              <p class="text-sm text-anthro-blue">Loses 2.1 pawns avg in Sicilian Defense</p>
             </div>
           </div>
+        </div>
 
-          <!-- Accuracy -->
-          <div class="feature-content" data-content="accuracy">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h3 class="text-2xl font-serif font-semibold text-anthro-light">Powered by Stockfish</h3>
-                <p class="mt-4 text-anthro-gray leading-relaxed">
-                  Every move analyzed by the strongest chess engine. See your accuracy broken down by game phase to understand exactly where you're making mistakes.
-                </p>
-                <ul class="mt-6 space-y-3">
-                  <li class="flex items-center gap-3 text-anthro-light/80">
-                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
-                    Accuracy by phase: opening, middlegame, endgame
-                  </li>
-                  <li class="flex items-center gap-3 text-anthro-light/80">
-                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
-                    Blunder, mistake, inaccuracy counts
-                  </li>
-                  <li class="flex items-center gap-3 text-anthro-light/80">
-                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
-                    Critical moment detection
-                  </li>
-                </ul>
+        <!-- Feature 3: Progress Reports -->
+        <div class="bg-anthro-light/5 border border-anthro-light/10 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-anthro-orange rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-serif font-semibold text-anthro-light mb-3">Progress Reports</h3>
+          <p class="text-anthro-gray leading-relaxed">
+            Generate PDF reports for parents in one click. Show improvement over time with data they can understand.
+          </p>
+          <div class="mt-6 p-4 bg-anthro-light/5 rounded-xl">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-12 bg-white/10 rounded flex items-center justify-center">
+                <svg class="w-5 h-5 text-anthro-light/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
               </div>
-              <div class="bg-anthro-light/5 border border-anthro-light/10 rounded-2xl p-6">
-                <div class="flex items-center justify-between mb-6">
-                  <h4 class="text-anthro-light font-medium">Your Accuracy</h4>
-                  <span class="text-xs text-anthro-gray">Average</span>
-                </div>
-                <div class="text-center py-8">
-                  <p class="text-6xl font-serif font-semibold text-anthro-light">74.2<span class="text-2xl text-anthro-gray">%</span></p>
-                  <p class="mt-2 text-anthro-gray">Overall accuracy</p>
-                </div>
-                <div class="grid grid-cols-3 gap-3 mt-6">
-                  <div class="text-center p-4 bg-anthro-light/5 rounded-xl">
-                    <p class="text-xl font-semibold text-anthro-green">85%</p>
-                    <p class="text-xs text-anthro-gray mt-1">Opening</p>
-                  </div>
-                  <div class="text-center p-4 bg-anthro-light/5 rounded-xl">
-                    <p class="text-xl font-semibold text-anthro-blue">71%</p>
-                    <p class="text-xs text-anthro-gray mt-1">Middlegame</p>
-                  </div>
-                  <div class="text-center p-4 bg-anthro-orange/10 border border-anthro-orange/30 rounded-xl">
-                    <p class="text-xl font-semibold text-anthro-orange">58%</p>
-                    <p class="text-xs text-anthro-gray mt-1">Endgame</p>
-                  </div>
-                </div>
+              <div>
+                <p class="text-anthro-light text-sm font-medium">Emma_Progress_Jan2025.pdf</p>
+                <p class="text-anthro-gray text-xs mt-0.5">Rating: 856 → 912 (+56)</p>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Scouting -->
-          <div class="feature-content" data-content="scouting">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h3 class="text-2xl font-serif font-semibold text-anthro-light">Know your opponent</h3>
-                <p class="mt-4 text-anthro-gray leading-relaxed">
-                  Preparing for a tournament? Analyze any Chess.com player to find their weaknesses before you sit across from them.
-                </p>
-                <ul class="mt-6 space-y-3">
-                  <li class="flex items-center gap-3 text-anthro-light/80">
-                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
-                    Their worst openings (and what to play)
-                  </li>
-                  <li class="flex items-center gap-3 text-anthro-light/80">
-                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
-                    Time trouble patterns
-                  </li>
-                  <li class="flex items-center gap-3 text-anthro-light/80">
-                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
-                    Head-to-head comparison
-                  </li>
-                </ul>
-              </div>
-              <div class="bg-anthro-light/5 border border-anthro-light/10 rounded-2xl p-6">
-                <div class="flex items-center justify-between mb-6">
-                  <h4 class="text-anthro-light font-medium">Scouting Report</h4>
-                  <span class="text-xs bg-anthro-orange/20 text-anthro-orange px-2 py-1 rounded-full">@opponent</span>
-                </div>
-                <div class="p-4 bg-anthro-light/5 rounded-xl mb-4">
-                  <p class="text-sm text-anthro-gray">Against 1.e4, they struggle with:</p>
-                  <p class="text-lg text-anthro-light font-medium mt-1">Sicilian Defense (38% win rate)</p>
-                </div>
-                <div class="p-4 bg-anthro-green/10 border border-anthro-green/30 rounded-xl">
-                  <p class="text-sm text-anthro-green font-medium">💡 Recommendation</p>
-                  <p class="text-anthro-light/80 mt-1 text-sm">Play 1.e4 and steer into Sicilian lines. They collapse after move 15 in the Najdorf.</p>
-                </div>
-              </div>
+        <!-- Feature 4: Game History -->
+        <div class="bg-anthro-light/5 border border-anthro-light/10 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-anthro-orange rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-serif font-semibold text-anthro-light mb-3">Game History</h3>
+          <p class="text-anthro-gray leading-relaxed">
+            Track every game your students play. See trends over time and identify when they need extra attention.
+          </p>
+          <div class="mt-6 p-4 bg-anthro-light/5 rounded-xl">
+            <div class="flex items-center justify-between text-sm mb-2">
+              <span class="text-anthro-light/80">This week</span>
+              <span class="text-anthro-green">+12 rating</span>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <span class="text-anthro-light/80">Last week</span>
+              <span class="text-anthro-orange">-8 rating</span>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <!-- Patterns -->
-          <div class="feature-content" data-content="patterns">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h3 class="text-2xl font-serif font-semibold text-anthro-light">Spot your patterns</h3>
-                <p class="mt-4 text-anthro-gray leading-relaxed">
-                  Do you play worse late at night? After 10 games in a row? When tilted? The data knows — and now you will too.
-                </p>
-                <ul class="mt-6 space-y-3">
-                  <li class="flex items-center gap-3 text-anthro-light/80">
-                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
-                    Performance by time of day
-                  </li>
-                  <li class="flex items-center gap-3 text-anthro-light/80">
-                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
-                    Session length impact
-                  </li>
-                  <li class="flex items-center gap-3 text-anthro-light/80">
-                    <span class="w-1.5 h-1.5 rounded-full bg-anthro-orange"></span>
-                    Tilt detection
-                  </li>
-                </ul>
-              </div>
-              <div class="bg-anthro-light/5 border border-anthro-light/10 rounded-2xl p-6">
-                <div class="flex items-center justify-between mb-6">
-                  <h4 class="text-anthro-light font-medium">Patterns Detected</h4>
-                </div>
-                <div class="space-y-3">
-                  <div class="p-4 bg-anthro-orange/10 border border-anthro-orange/30 rounded-xl">
-                    <p class="text-anthro-orange font-medium">⚠ After 8+ games</p>
-                    <p class="text-sm text-anthro-gray mt-1">Your win rate drops from 54% to 41%</p>
-                  </div>
-                  <div class="p-4 bg-anthro-blue/10 border border-anthro-blue/30 rounded-xl">
-                    <p class="text-anthro-blue font-medium">🌙 Late night (after 11pm)</p>
-                    <p class="text-sm text-anthro-gray mt-1">Blunder rate increases 2.3x</p>
-                  </div>
-                  <div class="p-4 bg-anthro-green/10 border border-anthro-green/30 rounded-xl">
-                    <p class="text-anthro-green font-medium">✓ Best performance</p>
-                    <p class="text-sm text-anthro-gray mt-1">Saturday mornings, first 5 games</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+  <!-- How it Works -->
+  <section class="py-20 sm:py-28 bg-anthro-light">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <h2 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-anthro-dark">
+          How it works
+        </h2>
+        <p class="mt-4 text-lg text-anthro-dark/60">
+          Get started in minutes, not hours.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-anthro-dark rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="text-2xl font-serif font-bold text-anthro-light">1</span>
           </div>
+          <h3 class="text-lg font-semibold text-anthro-dark mb-2">Add your students</h3>
+          <p class="text-anthro-gray">
+            Enter your students' Chess.com or Lichess usernames. That's all you need.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-anthro-dark rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="text-2xl font-serif font-bold text-anthro-light">2</span>
+          </div>
+          <h3 class="text-lg font-semibold text-anthro-dark mb-2">We analyze their games</h3>
+          <p class="text-anthro-gray">
+            Our engine reviews every game automatically. No manual work required.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-anthro-dark rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="text-2xl font-serif font-bold text-anthro-light">3</span>
+          </div>
+          <h3 class="text-lg font-semibold text-anthro-dark mb-2">See insights instantly</h3>
+          <p class="text-anthro-gray">
+            View weaknesses and progress in your dashboard. Ready for your next lesson.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-20 sm:py-32 bg-anthro-cream">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <h2 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-anthro-dark">
+          Simple pricing
+        </h2>
+        <p class="mt-4 text-lg text-anthro-dark/60">
+          Start free. Upgrade when you're ready.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Player (Free) -->
+        <div class="pricing-card bg-white rounded-2xl border border-anthro-gray-light p-8 flex flex-col">
+          <h3 class="text-lg font-semibold text-anthro-dark">Player</h3>
+          <p class="text-sm text-anthro-gray mt-1">For individual players</p>
+          <div class="mt-6">
+            <span class="text-4xl font-serif font-bold text-anthro-dark">$0</span>
+            <span class="text-anthro-gray">/month</span>
+          </div>
+          <ul class="mt-8 space-y-4 flex-grow">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-anthro-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-anthro-dark">Analyze your own games</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-anthro-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-anthro-dark">Up to 25 games</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-anthro-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-anthro-dark">Basic insights</span>
+            </li>
+          </ul>
+          <a href="#waitlist" class="mt-8 block w-full py-3 text-center font-medium text-anthro-dark border border-anthro-gray-light rounded-full hover:bg-anthro-cream transition">
+            Get Started
+          </a>
+        </div>
+
+        <!-- Coach (Popular) -->
+        <div class="pricing-card bg-anthro-dark rounded-2xl p-8 relative flex flex-col">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+            <span class="bg-anthro-orange text-white text-xs font-medium px-3 py-1 rounded-full">Most Popular</span>
+          </div>
+          <h3 class="text-lg font-semibold text-anthro-light">Coach</h3>
+          <p class="text-sm text-anthro-gray mt-1">For independent coaches</p>
+          <div class="mt-6">
+            <span class="text-4xl font-serif font-bold text-anthro-light">$49</span>
+            <span class="text-anthro-gray">/month</span>
+          </div>
+          <p class="text-sm text-anthro-green mt-2">$490/year (2 months free)</p>
+          <ul class="mt-8 space-y-4 flex-grow">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-anthro-orange flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-anthro-light">Up to 10 students</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-anthro-orange flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-anthro-light">100 games per student</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-anthro-orange flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-anthro-light">Weakness detection</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-anthro-orange flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-anthro-light">Progress reports (PDF)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-anthro-orange flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-anthro-light">Game history tracking</span>
+            </li>
+          </ul>
+          <a href="#waitlist" class="mt-8 block w-full py-3 text-center font-medium text-anthro-dark bg-anthro-orange rounded-full hover:bg-anthro-orange-dark transition">
+            Get Early Access
+          </a>
+        </div>
+
+        <!-- Academy -->
+        <div class="pricing-card bg-white rounded-2xl border border-anthro-gray-light p-8 flex flex-col">
+          <h3 class="text-lg font-semibold text-anthro-dark">Academy</h3>
+          <p class="text-sm text-anthro-gray mt-1">For chess schools</p>
+          <div class="mt-6">
+            <span class="text-4xl font-serif font-bold text-anthro-dark">$129</span>
+            <span class="text-anthro-gray">/month</span>
+          </div>
+          <p class="text-sm text-anthro-green mt-2">$1,290/year (2 months free)</p>
+          <ul class="mt-8 space-y-4 flex-grow">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-anthro-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-anthro-dark">Up to 50 students</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-anthro-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-anthro-dark">Unlimited games</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-anthro-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-anthro-dark">Multiple coach accounts</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-anthro-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-anthro-dark">Everything in Coach</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-anthro-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-anthro-dark">Priority support</span>
+            </li>
+          </ul>
+          <a href="#waitlist" class="mt-8 block w-full py-3 text-center font-medium text-anthro-dark border border-anthro-gray-light rounded-full hover:bg-anthro-cream transition">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof / Trust -->
+  <section class="py-16 bg-anthro-light border-y border-anthro-gray-light">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 text-center">
+        <div>
+          <p class="text-2xl font-serif font-semibold text-anthro-dark">50+</p>
+          <p class="text-sm text-anthro-gray mt-1">Coaches on waitlist</p>
+        </div>
+        <div class="hidden md:block w-px h-12 bg-anthro-gray-light"></div>
+        <div>
+          <p class="text-lg font-medium text-anthro-dark">Works with Chess.com & Lichess</p>
+          <p class="text-sm text-anthro-gray mt-1">Import games from both platforms</p>
+        </div>
+        <div class="hidden md:block w-px h-12 bg-anthro-gray-light"></div>
+        <div>
+          <p class="text-lg font-medium text-anthro-dark">Powered by Stockfish</p>
+          <p class="text-sm text-anthro-gray mt-1">World's strongest engine</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="py-20 sm:py-32 bg-anthro-cream">
+  <section id="faq" class="py-20 sm:py-32 bg-anthro-light">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl mx-auto text-center">
         <h2 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-anthro-dark">
@@ -414,20 +534,20 @@
       <div class="mt-16 max-w-2xl mx-auto">
         <dl class="space-y-8">
           <div>
-            <dt class="text-base font-medium text-anthro-dark">How does Insights64 analyze my games?</dt>
-            <dd class="mt-2 text-anthro-gray leading-relaxed">We use Stockfish, the world's strongest chess engine, to evaluate every position in your games. This gives you the same quality analysis that top players use.</dd>
+            <dt class="text-base font-medium text-anthro-dark">How is this different from Chess.com Insights?</dt>
+            <dd class="mt-2 text-anthro-gray leading-relaxed">Chess.com Insights is great for individual players, but it doesn't let you manage multiple students. Insights64 gives you a multi-student dashboard, weakness detection across your roster, and progress reports you can share with parents — features Chess.com doesn't offer.</dd>
+          </div>
+          <div>
+            <dt class="text-base font-medium text-anthro-dark">Do my students need to do anything?</dt>
+            <dd class="mt-2 text-anthro-gray leading-relaxed">No. You just need their Chess.com or Lichess username. Both platforms have public game data, so we can analyze their games without any action from them. They don't need to create an account or install anything.</dd>
+          </div>
+          <div>
+            <dt class="text-base font-medium text-anthro-dark">Can I try it free?</dt>
+            <dd class="mt-2 text-anthro-gray leading-relaxed">Yes! The Player tier is free forever. You can analyze your own games and see how Insights64 works before upgrading to Coach or Academy for student management features.</dd>
           </div>
           <div>
             <dt class="text-base font-medium text-anthro-dark">How long does analysis take?</dt>
-            <dd class="mt-2 text-anthro-gray leading-relaxed">Typically 30-60 minutes for 100 games. You'll get an email when your analysis is ready. Free users get a faster, lighter analysis.</dd>
-          </div>
-          <div>
-            <dt class="text-base font-medium text-anthro-dark">Is my Chess.com password safe?</dt>
-            <dd class="mt-2 text-anthro-gray leading-relaxed">We never ask for your password. Chess.com's API is public — we only need your username to fetch your games.</dd>
-          </div>
-          <div>
-            <dt class="text-base font-medium text-anthro-dark">Can I analyze other players' games?</dt>
-            <dd class="mt-2 text-anthro-gray leading-relaxed">Yes! Pro users get 3 opponent scouting reports per month. Perfect for tournament preparation.</dd>
+            <dd class="mt-2 text-anthro-gray leading-relaxed">Initial analysis of 100 games takes about 30-60 minutes. After that, new games are analyzed automatically within hours of being played.</dd>
           </div>
           <div>
             <dt class="text-base font-medium text-anthro-dark">What if I have more questions?</dt>
@@ -439,33 +559,33 @@
   </section>
 
   <!-- Final CTA -->
-  <section id="waitlist" class="py-20 sm:py-32 bg-anthro-light">
+  <section id="waitlist" class="py-20 sm:py-32 bg-anthro-dark">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl mx-auto text-center">
-        <h2 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-anthro-dark">
-          Ready to improve?
+        <h2 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-anthro-light">
+          Join 50+ coaches on the waitlist
         </h2>
-        <p class="mt-4 text-lg text-anthro-dark/60">
-          Join the waitlist. We're launching soon.
+        <p class="mt-4 text-lg text-anthro-light/70">
+          Be the first to know when we launch. Early subscribers get priority access.
         </p>
-        
+
         <form id="footer-form" class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-          <input 
-            type="email" 
+          <input
+            type="email"
             required
-            placeholder="Enter your email" 
-            class="flex-1 max-w-xs px-5 py-3 text-base rounded-full border border-anthro-gray-light bg-white focus:outline-none focus:ring-2 focus:ring-anthro-orange focus:border-transparent"
+            placeholder="Enter your email"
+            class="flex-1 max-w-xs px-5 py-3 text-base rounded-full border border-anthro-light/20 bg-anthro-light/10 text-anthro-light placeholder-anthro-light/50 focus:outline-none focus:ring-2 focus:ring-anthro-orange focus:border-transparent"
           >
-          <button 
+          <button
             type="submit"
-            class="px-8 py-3 text-base font-medium text-anthro-light bg-anthro-dark rounded-full hover:bg-anthro-orange transition"
+            class="px-8 py-3 text-base font-medium text-anthro-dark bg-anthro-orange rounded-full hover:bg-anthro-orange-dark transition"
           >
             Get Early Access
           </button>
         </form>
-        
-        <div id="footer-success" class="hidden mt-6 p-4 bg-anthro-cream border border-anthro-gray-light rounded-2xl max-w-md mx-auto">
-          <p class="text-anthro-dark font-medium">🎉 You're on the list! We'll email you when we launch.</p>
+
+        <div id="footer-success" class="hidden mt-6 p-4 bg-anthro-light/10 border border-anthro-light/20 rounded-2xl max-w-md mx-auto">
+          <p class="text-anthro-light font-medium">You're on the list! We'll email you when we launch.</p>
         </div>
       </div>
     </div>
@@ -485,8 +605,8 @@
           <span class="font-sans font-medium text-anthro-dark">Insights64</span>
         </a>
         <p class="text-sm text-anthro-gray">
-          Built by a chess player, for chess players. 
-          <a href="https://twitter.com/insights64" class="text-anthro-dark hover:text-anthro-orange transition">Twitter</a> · 
+          Built for chess coaches.
+          <a href="https://twitter.com/insights64" class="text-anthro-dark hover:text-anthro-orange transition">Twitter</a> ·
           <a href="mailto:hello@insights64.com" class="text-anthro-dark hover:text-anthro-orange transition">Contact</a>
         </p>
       </div>
@@ -494,29 +614,13 @@
   </footer>
 
   <script>
-    // Feature tabs
-    const tabs = document.querySelectorAll('.feature-tab');
-    const contents = document.querySelectorAll('.feature-content');
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const target = tab.dataset.tab;
-        
-        tabs.forEach(t => t.classList.remove('active'));
-        contents.forEach(c => c.classList.remove('active'));
-        
-        tab.classList.add('active');
-        document.querySelector(`[data-content="${target}"]`).classList.add('active');
-      });
-    });
-
     // Form handling
     const forms = [document.getElementById('hero-form'), document.getElementById('footer-form')];
     const successMessages = [document.getElementById('hero-success'), document.getElementById('footer-success')];
 
     forms.forEach((form, index) => {
       if (!form) return;
-      
+
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -565,7 +669,9 @@
         if (!form) return;
         form.style.display = 'none';
         successMessages[index].classList.remove('hidden');
-        successMessages[index].innerHTML = '<p class="text-anthro-dark font-medium">✓ You\'re already on the waitlist!</p>';
+        // Use light text for footer (dark bg), dark text for hero (light bg)
+        const textColor = index === 1 ? 'text-anthro-light' : 'text-anthro-dark';
+        successMessages[index].innerHTML = `<p class="${textColor} font-medium">You're already on the waitlist!</p>`;
       });
     }
   </script>
